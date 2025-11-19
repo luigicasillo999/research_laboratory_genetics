@@ -1,0 +1,15 @@
+env/bin/
+env/conda-meta/
+env/etc/
+env/fonts/
+env/include/
+env/lib/
+env/libexec/
+env/man/
+env/sbin/
+env/share/
+env/ssl/
+env/var/
+env/x86_64-conda-linux-gnu/
+results/
+scripts/
