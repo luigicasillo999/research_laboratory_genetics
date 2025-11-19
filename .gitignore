@@ -12,4 +12,7 @@ env/ssl/
 env/var/
 env/x86_64-conda-linux-gnu/
 results/
-scripts/
+scripts/filter_subjects_excessive_heterozigosity.r
+scripts/gwas.sh
+scripts/pca.sh
+scripts/plot_pca.r
