@@ -11,8 +11,15 @@ env/share/
 env/ssl/
 env/var/
 env/x86_64-conda-linux-gnu/
-results/
+results/genotypes_quality_checked/
+results/quality_controls/
+results/pca/samples.eigenval
+results/pca/samples.eigenvec
+results/pca/samples.log
 scripts/filter_subjects_excessive_heterozigosity.r
 scripts/gwas.sh
 scripts/pca.sh
+scripts/plot_pca.r.Rhistory
+scripts/.Rhistory
 scripts/plot_pca.r
+.Rhistory
