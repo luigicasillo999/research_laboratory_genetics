@@ -28,13 +28,22 @@ plink \
 # ----------------------------------------
 
 # get a list of the independent variants
-
+plink \
+  --bfile data/genotypes/samples \
+  --keep results/quality_controls/samples_standard_qced.fam \
+  --extract results/quality_controls/samples_standard_qced.snplist \
+  #--?????? 200 50 0.25 \
+  --out results/quality_controls/independent_variants
 
 # compute subjects' heterozygoisty rate using independent variants
-
+plink \
+  #--??????
+  #--??????
+  #--??????
+  #--??????
+  --out results/quality_controls/samples_heterozygosity
 
 # remove individuals with heterozygisity rate > 3 standard deviation in R
-
 
 # ----------------------------------------
 # remove relatives
@@ -42,10 +51,8 @@ plink \
 
 # remove closely related individuals
 
-
 # ----------------------------------------
 # generate final files
 # ----------------------------------------
 
 # generate final fileset including quality checked variants and subjects
-
