@@ -23,4 +23,6 @@ scripts/plot_pca.r.Rhistory
 scripts/.Rhistory
 scripts/plot_pca.r
 .Rhistory
-test.sh
+setup
+results/gwas/
+scripts/plot_gwas.r

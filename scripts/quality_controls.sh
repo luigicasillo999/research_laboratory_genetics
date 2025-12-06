@@ -32,27 +32,40 @@ plink \
   --bfile data/genotypes/samples \
   --keep results/quality_controls/samples_standard_qced.fam \
   --extract results/quality_controls/samples_standard_qced.snplist \
-  #--?????? 200 50 0.25 \
+  --indep-pairwise 200 50 0.25 \
   --out results/quality_controls/independent_variants
 
 # compute subjects' heterozygoisty rate using independent variants
 plink \
-  #--??????
-  #--??????
-  #--??????
-  #--??????
+  --bfile data/genotypes/samples \
+  --keep results/quality_controls/samples_standard_qced.fam \
+  --extract results/quality_controls/independent_variants.prune.in \
+  --het \
   --out results/quality_controls/samples_heterozygosity
 
 # remove individuals with heterozygisity rate > 3 standard deviation in R
+Rscript scripts/filter_subjects_excessive_heterozygosity.r
 
 # ----------------------------------------
 # remove relatives
 # ----------------------------------------
 
 # remove closely related individuals
+plink \
+  --bfile data/genotypes/samples \
+  --extract results/quality_controls/independent_variants.prune.in \
+  --keep results/quality_controls/samples_heterozygosity_qced.fam \
+  --rel-cutoff 0.125 \
+  --out results/quality_controls/samples_kinship_qced
 
 # ----------------------------------------
 # generate final files
 # ----------------------------------------
 
 # generate final fileset including quality checked variants and subjects
+plink \
+  --bfile data/genotypes/samples \
+  --keep results/quality_controls/samples_kinship_qced.rel.id \
+  --extract results/quality_controls/samples_standard_qced.snplist \
+  --make-bed \
+  --out results/genotypes_quality_checked/samples
