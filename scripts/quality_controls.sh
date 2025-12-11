@@ -10,8 +10,8 @@ mkdir -p results/quality_controls results/genotypes_quality_checked
 # gwas standard quality controls
 # ----------------------------------------
 
-# remove variants with MAF < 0.01, HWE deviation p-value < 1e-6, genotyping call rate < 0.01
-# remove subjects with sample call rate < 0.01
+# remove variants with MAF < 0.01, HWE deviation p-value < 1e-6, genotyping missing call rate > 0.01
+# remove subjects with sample missing call rate > 0.01
 # write the list of remaining variants and a list of the remaining subjects
 plink \
   --bfile data/genotypes/samples \
