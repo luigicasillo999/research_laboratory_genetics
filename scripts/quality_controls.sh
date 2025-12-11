@@ -44,6 +44,7 @@ plink \
   --out results/quality_controls/samples_heterozygosity
 
 # remove individuals with heterozygisity rate > 3 standard deviation in R
+sed -E 's/^ +// ; s/ +/\t/g' results/quality_controls/samples_heterozygosity.het > results/quality_controls/samples_heterozygosity.het.tsv
 Rscript scripts/filter_subjects_excessive_heterozygosity.r
 
 # ----------------------------------------
