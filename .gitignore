@@ -25,4 +25,7 @@ scripts/plot_pca.r
 .Rhistory
 setup
 results/gwas/
+scripts/plot_gwas.rscripts/filter_heterozigosity.r
 scripts/plot_gwas.r
+scripts/filter_heterozigosity.r
+scripts/test.R
