@@ -30,14 +30,11 @@ ggplot(heterozigosity_table, aes(x=F)) +
   )
 
 # filter subjects based on excessive heterozigoisity
-subjects_filtered <- heterozigosity_table |>
-    filter(F <= mean_heterozigosity + (3*standard_deviaiton_heterozigosity)) |>
-    filter(F >= mean_heterozigosity - (3*standard_deviaiton_heterozigosity)) |>
+subjects_filtered <- heterozigosity_table %>%
+    filter(F <= mean_heterozigosity + (3*standard_deviaiton_heterozigosity)) %>%
+    filter(F >= mean_heterozigosity - (3*standard_deviaiton_heterozigosity)) %>%
     select(FID, IID)
 
 # write table to a file
 write_delim(subjects_filtered, 
-            file = "results/quality_controls/samples_heterozygosity_qced.fam" , 
-            delim = "\t", 
-            quote=NULL, 
-            col_names=FALSE)
+            path = "results/quality_controls/samples_heterozygosity_qced.fam")
