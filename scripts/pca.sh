@@ -17,4 +17,4 @@ plink \
   --out results/pca/samples
 
 # plot pca
-Rscript scripts/plot_pca.r
+Rscript scripts/plot_pca.R

@@ -13,3 +13,5 @@ scripts/.Rhistory
 setup
 results/gwas/
 scripts/test.R
+Rplots.pdf
+results/pca/samples_and_1000GP.jpeg

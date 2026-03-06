@@ -19,7 +19,7 @@ standard_deviaiton_heterozigosity <- sd(heterozigosity_table$F)
 # plot heterozigosity F distribution
 ggplot(heterozigosity_table, aes(x=F)) +
   geom_density() +
-  geom_histogram(alpha=0.5) +
+  geom_histogram(alpha=0.5, binwidth=0.001) +
   geom_vline(
     xintercept = mean_heterozigosity+3*standard_deviaiton_heterozigosity,
     linetype = "dashed" 
