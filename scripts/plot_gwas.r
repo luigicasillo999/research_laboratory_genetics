@@ -12,17 +12,17 @@ library(qqman)
 gwas <- read_table("results/gwas/samples.assoc.logistic")
 
 # if read_table reads an empty last column do this:
-gwas <- gwas %>%
-  select(where(~!(all(is.na(.)))))
+# gwas <- gwas %>%
+#  select(where(~!(all(is.na(.)))))
 
 # remove missing values
 gwas <- gwas %>%
   drop_na()
 
 # plot gwas as manhattan plot
-manhattan(gwas)
+manhattan_plot <- manhattan(gwas)
 
-# save manhattan plot
+# plot and save manhattan plot
 jpeg(
   "results/gwas/samples_gwas_manhattan.jpeg",
   width = 3120, height = 1728, res = 300
