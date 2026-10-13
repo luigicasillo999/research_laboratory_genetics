@@ -4,10 +4,6 @@
 library(tidyverse)
 library(qqman)
 
-# change working directory to research_laboratory_genetics if needed
-# getwd()
-# setwd("/PATH_TO_DIRECTORY/research_laboratory_genetics/")
-
 # read gwas
 gwas <- read_table("results/gwas/samples.assoc.logistic")
 

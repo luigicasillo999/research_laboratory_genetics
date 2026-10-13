@@ -3,10 +3,6 @@
 # load the library required
 library(tidyverse)
 
-# change working directory to research_laboratory_genetics if needed
-# getwd()
-# setwd("/PATH_TO_DIRECTORY/research_laboratory_genetics/")
-
 # load heterozigosity table
 heterozigosity_table <- read_tsv("results/quality_controls/samples_heterozygosity.het.tsv")
 
@@ -17,7 +13,7 @@ mean_heterozigosity <- mean(heterozigosity_table$F)
 standard_deviaiton_heterozigosity <- sd(heterozigosity_table$F)
 
 # plot heterozigosity F distribution
-ggplot(heterozigosity_table, aes(x=F)) +
+heterozigosity_f_distribution <- ggplot(heterozigosity_table, aes(x=F)) +
   geom_density() +
   geom_histogram(alpha=0.5, binwidth=0.001) +
   geom_vline(
@@ -28,6 +24,12 @@ ggplot(heterozigosity_table, aes(x=F)) +
     xintercept = mean_heterozigosity-3*standard_deviaiton_heterozigosity,
     linetype = "dashed" 
   )
+jpeg(
+  "results/quality_controls/heterozigosity_f_distribution.jpeg",
+  width = 3120, height = 1728, res = 300
+)
+heterozigosity_f_distribution
+dev.off()
 
 # filter subjects based on excessive heterozigoisity
 subjects_filtered <- heterozigosity_table %>%
